@@ -1,6 +1,9 @@
 # Virtual environment
 env/
 
+# Jupyter notebook for experimentation
+prompt_engineering/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
