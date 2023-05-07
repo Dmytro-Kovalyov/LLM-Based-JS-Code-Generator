@@ -1,6 +1,6 @@
 # **LLM Based JS Code Generator**
 ## **Project description**
-In this project I have developed a LangChain agent that generates Node.js code based on user description of a function. The agent can search google and stackoverflow for information in case the LLM can't generate the necessary code on its own. The interaction with the agent occurs through 2 endpoints.
+In this project I have developed a LangChain agent that generates Node.js code based on user description of a function. The agent can search google and stackoverflow for information in case the LLM can't generate the necessary code on its own. The interaction with the agent occurs through 2 endpoints. You can also access admin dashboard at ```/admin/``` where you can view contents of the database using Web GUI.
 ## **API Endpoints**
 ### **GET**
 - [/api/list_functions/](#get-apilist_functions)
