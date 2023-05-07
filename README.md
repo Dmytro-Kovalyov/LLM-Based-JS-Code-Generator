@@ -96,24 +96,24 @@ First download the project:
 git clone https://github.com/Dmytro-Kovalyov/LLM-Based-JS-Code-Generator.git
 ```
 ### **Docker**
-The easiest way to run the project is using Docker.
+The easiest way to run the project is using Docker:
 
-Input your api keys in ```docker-compose.yml``` file
-```
-environment:
-    - "DEBUG=1"
-    - "OPENAI_API_KEY=<OPENAI_API_KEY>"
-    - "SERPAPI_API_KEY=<SERPAPI_API_KEY>"
-    - "STACKOVERFLOW_API_KEY=<STACKOVERFLOW_API_KEY>"
-```
-Then build the image:
-```
-sudo docker-compose build
-```
-Now you can run it:
-```
-sudo docker-compose up -d
-```
+- input your api keys in ```docker-compose.yml``` file
+    ```
+    environment:
+        - "DEBUG=1"
+        - "OPENAI_API_KEY=<OPENAI_API_KEY>"
+        - "SERPAPI_API_KEY=<SERPAPI_API_KEY>"
+        - "STACKOVERFLOW_API_KEY=<STACKOVERFLOW_API_KEY>"
+    ```
+- build the image:
+    ```
+    sudo docker-compose build
+    ```
+- now you can run it:
+    ```
+    sudo docker-compose up -d
+    ```
 ### **Running natively**
 If you want to run this project natively there are several steps necessary to take:
 - download [python](https://www.python.org/downloads/)
