@@ -3,10 +3,10 @@
 In this project I have developed a LangChain agent that generates Node.js code based on user description of a function. The agent can search google and stackoverflow for information in case the LLM can't generate the necessary code on its own. The interaction with the agent occurs through 2 endpoints.
 ## **API Endpoints**
 ### **GET**
-- [/api/list_functions/](#get-/api/list_functions/)
+- [/api/list_functions/](#get-apilist_functions)
 ### **POST**
-- [/api/generate/](#post-/api/generate/)
-- [/api/test/](#post-/api/test/)
+- [/api/generate/](#post-apigenerate)
+- [/api/test/](#post-apitest)
 ### **GET /api/list_functions/**
 Lists all fucntion names and their ids present in the database. Doesn't accept any parameters.
 #### **Example**
