@@ -48,7 +48,8 @@ class AgentService:
     def __create_stackoverflow_tool(self):
         """
         Function that defines a StackOverflow Search tool, which uses
-        the website's API to search it for an answer
+        the website's API to search it for an answer and then passes it
+        to an llm to parse
         """
         # Get API key from environment
         STACKOVERFLOW_API_KEY = os.getenv("STACKOVERFLOW_API_KEY")
@@ -77,7 +78,20 @@ class AgentService:
                             if answer["is_accepted"]:
                                 final_answer = answer["body"]
                                 break
-                return final_answer
+                # Parse the received answer using llm
+                template = """
+                You need to read through raw data received from stackoverflow 
+                regarding a question asked by the user and you need to answer it 
+                Here is the question: 
+                {query} 
+                Here is the raw data received from stackoverflow: 
+                {final_answer}
+                """
+                stackoverflow_prompt = PromptTemplate(
+                    input_variables=["query", "final_answer"],
+                    template=template
+                )
+                return self.llm(stackoverflow_prompt.format(query=query, final_answer=final_answer))
         
         return search_stackoverflow
 

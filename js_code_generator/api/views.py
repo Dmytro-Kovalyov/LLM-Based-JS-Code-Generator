@@ -3,6 +3,18 @@ from rest_framework.response import Response
 from rest_framework import permissions
 from .services import ScriptService
 from .models import Script
+from .serializers import ScriptListSerializer
+
+class ListFunctionsAPIView(APIView):
+    """
+    A class that describes the list_functions/ endpoint
+    """
+    serializer_class = ScriptListSerializer
+
+    def get(self, request):
+        scripts = Script.objects.all()
+        serializer = self.serializer_class(scripts, many=True)
+        return Response(serializer.data)
 
 class GenerateScriptAPIView(APIView):
     """
