@@ -95,7 +95,10 @@ First download the project:
 ```
 git clone https://github.com/Dmytro-Kovalyov/LLM-Based-JS-Code-Generator.git
 ```
-Next input your api keys in ```docker-compose.yml``` file
+### **Docker**
+The easiest way to run the project is using Docker.
+
+Input your api keys in ```docker-compose.yml``` file
 ```
 environment:
     - "DEBUG=1"
@@ -111,4 +114,35 @@ Now you can run it:
 ```
 sudo docker-compose up -d
 ```
-You should be able to access the API at [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+### **Running natively**
+If you want to run this project natively there are several steps necessary to take:
+- download [python](https://www.python.org/downloads/)
+- download [nodejs](https://nodejs.org/en/download)
+- create a virtual environment (for example using ```venv```):
+    ```
+    python -m venv env
+    ```
+- add OpenAI, SerpAPI and StackOverflow api keys to the ```env/Scripts/activate``` (or ```activate.bat``` on Windows) script to always have them in the virtual environment. Alternatively you can set them manually after activating the environment. In order to do it append this at the end of the file (on Windows use ```set``` instead of ```export```):
+    ```
+    export OPENAI_API_KEY=<OPENAI_API_KEY>
+    export SERPAPI_API_KEY=<SERPAPI_API_KEY>
+    export STACKOVERFLOW_API_KEY=<STACKOVERFLOW_API_KEY>"
+    ```
+- activate the environment by running the ```activate``` script:
+    ```
+    ./env/Scripts/activate
+    ```
+- install dependencies listed in ```requirements.txt```:
+    ```
+    pip install -r requirements.txt
+    ```
+- if you want to be able to access the admin panel you'll need to create a superuser:
+    ```
+    python manage.py createsuperuser
+    ```
+- now you can run the project:
+    ```
+    python.exe manage.py runserver
+    ```
+
+You should be able to access the API at [http://127.0.0.1:8000/api/](http://127.0.0.1:8000/api/)
